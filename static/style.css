@@ -1,0 +1,139 @@
+body, h1,  h4, h5, h6, ul, li {
+    margin: 0;
+    padding: 0;
+  }
+  
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #757473b9;
+    padding: 2vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  header a {
+    text-shadow: 2px 2px 2px rgba(241, 129, 25, 0.664);
+    color: #1a1919;
+    text-decoration: none;
+    font-size: 3vw;
+    font-weight: bold;
+    border-radius: 20px;
+  }
+  
+#logo {
+    width: 12vw;
+    height: 8vw;
+  }
+  
+  header a:hover {
+    color: #beb5b5;
+  }
+  
+  header a:active {
+    color: #691717;
+  }
+  
+
+  div{
+    display: flex;
+    justify-content: center;
+  }
+  
+
+
+   #background {
+    animation: backgroundAnim 5s ease-out both;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+
+  }
+@keyframes backgroundAnim {
+  0% {
+    transform: scale(1) translateY(0);
+    transform-origin: 50% 84%;
+  }
+  100% {
+    transform: scale(1.20) translateY(15px);
+    transform-origin: bottom;
+  }
+}
+
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+  }
+  
+ #adv {
+    animation: myAnim 2.5s ease 4s 1 normal forwards;
+    font-family: 'Arial', sans-serif;
+    font-size: 2vw;
+    color: #f5f0f0;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(202, 241, 25, 0.911);
+  }
+  
+  @keyframes myAnim {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1.8);
+    }
+  }
+  
+  @media (max-width: 580px) {
+    .section{ background-image: url("https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80");
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+    }
+    
+    
+    header {
+      background-color: transparent;
+      flex-wrap: wrap;
+      flex-direction: column;
+
+    }
+  
+    header a {
+      margin-bottom: 2vw;
+      margin: 1vh;
+      text-shadow:none;
+      color: #f5f0f0;
+      font-size: 6vw;
+
+    }
+  
+    a{
+        background-color: #757473;
+        padding: 1vw;
+    }
+
+    #logo {
+      width: 40%;
+      max-width: 20vh;
+      height: auto;
+    }
+    #adv{    
+        text-shadow: 2px 2px 4px rgba(17, 11, 95, 0.911);
+        animation: myAnim 2.5s ease 0s 1 normal forwards;
+        margin-top: 80vh;
+
+    }
+  }
+

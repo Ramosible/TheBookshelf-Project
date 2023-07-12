@@ -1,0 +1,328 @@
+{% extends 'base.html' %}
+
+{% block up %}
+<style>
+
+html, body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.navbar{display: none;}
+
+#n-cat{
+
+  margin-top: 15rem;
+  color: rgb(199, 16, 16);
+  -webkit-animation-name: flash;
+  animation-name: flash;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  font-size: 1.5rem;
+
+}
+
+@-webkit-keyframes flash {
+  0%, 50%, 100% {
+  opacity: 1;
+  }
+  
+  25%, 75% {
+  opacity: 0;
+  }
+  }
+  
+  @keyframes flash {
+  0%, 50%, 100% {
+  opacity: 1;
+  }
+  
+  25%, 75% {
+  opacity: 0;
+  }
+  } 
+
+  header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #918f8eb9;
+    height: 4rem;
+    padding:2rem 1rem 2rem 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+.H2{
+  font-size: 3vh;
+  color: rgb(2, 2, 2);
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+#categoryForm {
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+  width: 50vw;
+  background-color: #0a6ea8c7;
+  margin-top: 4rem;
+  padding: 2rem;
+  border-radius: 3rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+#Catlabel{
+  font-size: 1.1rem;
+  color: #e7cece;
+  text-shadow: 1px 1px 2px rgba(206, 182, 182, 0.2);
+  margin-right: 0.6rem;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
+
+#categ {
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  color: #111111;
+  background-color: #f5f5f5;
+}
+
+#home_button2{
+   display: none;
+  }
+
+#searchBtn{
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  border: 0;
+  margin-left: 0.3rem;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  color: #FFFFFF;
+  font-family: sans-serif;
+  font-size: 0.9rem;
+  text-decoration: none;
+  }
+#formConteiner{
+  margin-top: 9rem;
+  margin-bottom: 1rem;
+
+}
+
+#ListArticle{ 
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap:1em;
+    margin-top: 10rem;
+}
+
+.BooksClass{
+  border:outset rgba(14, 2, 2, 0.911);
+  padding: 0.5vw ;
+  margin-left: 1rem;
+  width: 6rem;
+  height: 9rem;
+}
+
+.divConteiner{
+  display: flex;
+  flex-direction: column;
+  width: 50vh;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 50vh;
+  border: 3px solid #6e6d6ce5;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+
+@media (max-width: 680px){
+
+  header{display: none;}
+
+  .navbar {
+  display: flex;
+  background-color: #085bb9ce;
+}
+a{
+  background-color: #fafafa;
+}
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: rgb(32, 56, 212);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 6px;
+}
+
+.dropdown-content { 
+  display: none;
+  position: absolute;
+  min-width: 100vw;
+  box-shadow: 0px 8px 16px 0px rgba(63, 65, 65, 0.925);
+  z-index: 1;
+  margin-top: 50px; 
+  text-align: center;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #487eeb; 
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+#formConteiner{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  height: 7rem;
+  text-align: center;
+}
+#categoryForm{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    width: 75vw;
+    margin-top: 5rem;
+    background-color: #1c7a97c7;
+    border-radius: 2rem;
+}
+#categ {
+  font-size: 4vw;
+  border: 1px solid #ccc;
+  color: #080808;
+  background-color: #f5f5f5;
+}
+#Catlabel{
+  font-size: 4vw;
+  color: #f8f5f5;
+  text-align: center;
+  margin-right: 0.5rem;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
+
+  #ListArticle{ 
+    display: flex;
+    flex-wrap: wrap;
+    gap:0.5em;
+    margin-top: 5rem;
+  }
+
+.BooksClass{
+   margin-left: 1rem;
+   width: 4rem;
+   height: 6rem;
+
+}
+
+.divConteiner{
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 40vh;
+  border: 2px solid #0d0d0e;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.H2{
+  font-size: 2vh;
+  color: rgb(31, 66, 223);
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+}
+
+</style>
+
+{{ super() }}
+
+<div class="navbar">
+  <div class="dropdown">
+    <button class="dropbtn">Dropdown 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="/home">Home</a>
+      <a href="/categories">Categories</a>
+      <a href="/books">Books</a>
+  {% if 'user' not in session %}
+      <a href="/login">Log in</a>
+  {% endif %}
+  {% if 'user'  in session %}
+      <a href="/logout">Logout</a>
+  {% endif %}
+    </div>
+  </div> 
+</div>
+{% if 'user'  in session %}
+<div id="formConteiner">
+<form action="#" id="categoryForm">
+  <label id="Catlabel" for="categ">Choose Category</label>
+  <select name="Categories" id="categ">
+    <option value="Proggraming">Proggraming</option>
+    <option value="Biography">Biography</option>
+    <option value="psychology">Psychology</option>
+    <option value="Business">Business</option>
+    <option value="Fantasy">Fantasy</option>
+    <option value="Travel">Travel</option>
+    <option value="History">History</option>
+    <option value="Art">Art</option>
+    <option value="Technology">Technology</option>
+    <option value="Education">Education</option>
+    <option value="Poetry">Poetry</option>
+  </select>
+  <button id="searchBtn">Search</button>
+</form>
+</div>
+<br>
+<article id="ListArticle">
+</article>
+{% endif %}
+
+{% if 'user' not in session %}
+<div id="n-cat"><h2 class="not">Please log in to see categories</h2></div>
+{% endif %}
+
+{% endblock %}
+
+{% block section %}
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%if title %}
+    <title> {{ title }}</title>
+    {% else %}
+    <title>The Bookshelf</title>
+    {% endif %} 
+    <link href="{{url_for('static', filename='style.css')}}" rel="stylesheet">
+
+    <link rel="icon" href="https://i.pinimg.com/originals/dd/64/da/dd64da585bc57cb05e5fd4d8ce873f57.png" type="image/x-icon">
+
+</head>
+<body>
+    {% block up%}
+    <header>
+        <img id="logo" src="https://i.pinimg.com/originals/dd/64/da/dd64da585bc57cb05e5fd4d8ce873f57.png"></img>
+        <a href="/home">Home</a>
+        <a href="/books">Books</a>
+       <a href="/savedBooks">Saved Books</a> 
+        <a href="/categories">Categories</a>
+        {% if 'user' not in session %}
+        <a href="/login">Login</a>
+        {% endif %}
+        {% if 'user'  in session %}
+        <a href="/logout">Log Out</a>
+        {% endif %}
+
+    </header>
+    {% endblock %}
+    {% block section%}
+
+    <div class="section">
+        <h2 id="adv">Unlock the Magic of Books </h2>
+        <img src="https://wallpaperaccess.com/full/124383.jpg" alt="background_img" id="background">
+    </div>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,224 @@
+{% extends 'base.html' %}
+
+{% block up%}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% for cat, msg in messages %}
+    <h4 class="{{cat}}">{{ msg }}</h4>
+  {% endfor %}
+  {% endwith %}
+
+<style>
+  
+  .not{
+    margin-top: 4rem;
+    color: #be0202;
+    animation:  flash1anim 1.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    font-size: 3vw;
+	font-family: "Arial Black", Gadget, sans-serifpx;
+	text-shadow: rgba(163, 163, 163, 0.75) 3px 3px 2px;
+  }
+
+  @keyframes flash1anim {
+  0% {
+    letter-spacing: -0.5em;
+    -webkit-transform: translateZ(-700px) translateY(-500px);
+            transform: translateZ(-700px) translateY(-500px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    -webkit-transform: translateZ(0) translateY(0);
+            transform: translateZ(0) translateY(0);
+    opacity: 1;
+  }
+}
+
+  body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://res.cloudinary.com/practicaldev/image/fetch/s--fZ8kJHEQ--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/nphrgz8yfnjylrwfr0yl.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+
+}
+  
+
+.container {
+  width: 90%;
+  max-width: 50%;
+  padding: 8vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  margin: 0 auto;
+  height: 100%;
+  animation:  fade-in 1.5s ease-in-out;
+
+}
+  
+h2{
+  margin-bottom: 8vh;
+  animation: join 1.5s ease-in 2s normal forwards;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fffefe;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#buttonDiv{text-align: center;}
+  .container input[type="text"],
+  .container input[type="email"],
+  .container input[type="password"] {
+    width: 100%;
+    padding: 1vw;
+    margin-bottom: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 3vh;
+  }
+  
+  .container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    border: none;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  
+  
+.btn{
+padding: 1em 1.5em; 
+  font-size: 1em; 
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #05508dd3;
+  cursor: pointer;
+  position: relative;
+  border-radius: 80px;
+}
+
+.btn:hover{
+  background: #043c69fb;
+
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+  
+
+@keyframes join {
+  0% {
+    animation-timing-function: ease-out;transform: scale(1);transform-origin: center center;
+  }
+  10% {
+    animation-timing-function: ease-in;transform: scale(0.91);
+  }
+  17% {
+    animation-timing-function: ease-out;transform: scale(0.98);
+  }
+  33% {
+    animation-timing-function: ease-in;transform: scale(0.87);
+  }
+  45% {
+    animation-timing-function: ease-out;transform: scale(1);
+  }
+  
+}
+
+
+  @media (max-width: 580px) {
+body{    background-image: radial-gradient(circle,#4ac0e449 0%, #5238c5b9 100%);
+}
+      
+.btn:hover{
+  background: #043c69b6;
+}
+.not{
+    margin-top: 4rem;
+    color: #be0202;
+    animation:  flash1anim 1.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    font-size: 5vw;
+	  font-family: "Arial Black", Gadget, sans-serifpx;
+	  text-shadow: rgba(163, 163, 163, 0.75) 3px 3px 2px;
+  }
+.btn{
+    padding: 1em 1.5em; 
+  font-size: 1em; 
+
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #043c69fb;
+  cursor: pointer;
+  position: relative;
+  border-radius: 80px;
+}
+
+.container {
+      width: 100%;
+      padding: 10vh;
+}
+
+  .container input[type="text"],
+  .container input[type="email"],
+  .container input[type="password"] {
+    width: 100%;
+    padding: 1vw;
+    font-size: 1.5em;
+  }
+  }
+  a {
+  display: block;
+  text-align: center;
+  color: #fff8f8;
+  margin-top: 1em;
+  text-decoration: underline;
+  background-color:rgb(169, 169, 236);
+}
+</style>
+
+{% endblock%}
+
+{% block section%}
+
+  <div class="container">
+    
+    <h2>Join Us</h2>
+    <form method="post">
+      <input type="text" name="firstname" placeholder="First Name" required>
+      <input type="text" name="lastname" placeholder="Last Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="psw" placeholder="Password" required>
+      
+   <div id="buttonDiv">
+    <button type="submit" class="btn">Sign Up</button>
+  </div>
+  </form>
+    <a href="/login">Already have an account? </a>
+  </div>
+
+{% endblock%}
